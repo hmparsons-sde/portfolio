@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
@@ -27,34 +25,30 @@ import { signInUser, signOutUser } from '../../helpers/auth';
 // `;
 
 const NavBar = ({ user }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
-  //   const authenticated = () => (
-  //     <>
-  //       <NavItem>
-  //         <Link className='nav-link' to='/admin/bio'>
-  //           Edit Bio
-  //         </Link>
-  //       </NavItem>
-  //       <NavItem>
-  //         <Link className='nav-link' to='/admin/projects'>
-  //           Edit Projects
-  //         </Link>
-  //       </NavItem>
-  //       <NavItem>
-  //         <Link className='nav-link' to='/admin/tech'>
-  //           Edit Tech
-  //         </Link>
-  //       </NavItem>
-  //       <NavItem>
-  //         <Link className='nav-link' to='/admin/contact'>
-  //           Edit Contact Info
-  //         </Link>
-  //       </NavItem>
-  //     </>
-  //   );
+  const authenticated = () => (
+    <>
+      <NavItem>
+        <Link className='nav-link' to='/admin/bio'>
+          Edit Bio
+        </Link>
+      </NavItem>
+      <NavItem>
+        <Link className='nav-link' to='/admin/projects'>
+          Edit Projects
+        </Link>
+      </NavItem>
+      <NavItem>
+        <Link className='nav-link' to='/admin/tech'>
+          Edit Tech
+        </Link>
+      </NavItem>
+      <NavItem>
+        <Link className='nav-link' to='/admin/contact'>
+          Edit Contact Info
+        </Link>
+      </NavItem>
+    </>
+  );
 
   return (
     <div>
@@ -62,8 +56,6 @@ const NavBar = ({ user }) => {
         <NavbarBrand href="/">
           <i>🍔</i>
         </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
           <Nav navbar>
             <NavItem>
               <Link className='nav-link' to='/bio'>
@@ -85,20 +77,18 @@ const NavBar = ({ user }) => {
                 Contact
               </Link>
             </NavItem>
-            {/* {user && authenticated()} */}
+            {user && authenticated()}
             {user !== null && (
               <NavItem>
                 <Button size='sm' color="danger" onClick={signOutUser}>
                   <i className="fas fa-sign-out-alt"></i>
                 </Button>
-                ) : (
                 <Button size='sm' color="info" onClick={signInUser}>
                   <i className="fas fa-sign-in-alt"></i>
                 </Button>
               </NavItem>
             )};
           </Nav>
-        </Collapse>
       </Navbar>
     </div>
   );

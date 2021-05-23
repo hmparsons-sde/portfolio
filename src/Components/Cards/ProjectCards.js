@@ -20,7 +20,7 @@ export default function ProjectCard({
       id={firebaseKey}
       body>
     <CardBody>
-      <CardImg>{screenshot}</CardImg>
+      <CardImg src={screenshot} />
       <CardTitle tag="h5">{title}</CardTitle>
       <CardText>{overview}</CardText>
       <CardText>{available}</CardText>
@@ -35,10 +35,10 @@ export default function ProjectCard({
 ProjectCard.propTypes = {
   title: PropTypes.string,
   screenshot: PropTypes.string,
-  overview: PropTypes.overview,
-  tech: PropTypes.tech,
-  github: PropTypes.number,
+  overview: PropTypes.string,
+  tech: PropTypes.string,
+  github: PropTypes.string,
   url: PropTypes.string,
-  available: PropTypes.any,
+  available: PropTypes.string,
   firebaseKey: PropTypes.string
 };
