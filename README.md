@@ -1,61 +1,15 @@
-# Styled Components
+## OVERVIEW
 
-To get styled components into your project run `npm install --save styled-components` in your terminal.
+This is my personal portfolio site that showcases my progress as a software developer. In this iteration, I am highlighting my work during Nashville Software School's part-time web dev bootcamp. From the side navbar, site visitors may navigate to my bio, the projects that best demonstrate my technical competencies, and to my tech stack. Beneath these site-specific navigation buttons, the user can open my Github and LinkedIn pages (in new windows) or email me directly through their default mail app. As a one-page, smooth-scrolling app, each page takes up 100% of the screen and automatically responds to different screen sizes.
 
-## Get Started
-```bash
-$ git clone git@github.com:drteresavasquez/styled-components.git
-$ cd styled-components
-$ npm install
-$ npm start
-```
+My goal is to both celebrate my journey into software development and to introduce visitors to my story, motivations, and aesthetic.
 
-### Example of Styled Components
-![Screen Shot 2021-05-10 at 9 44 52 PM](https://user-images.githubusercontent.com/29741570/117750431-0122a780-b1d9-11eb-9e7d-0508af8c86a9.png)
+## COLOR PALETTE
 
-**CODE**
-```javascript
-import React from 'react';
-import styled from 'styled-components';
+<img width="862" alt="portfolio-palette" src="https://user-images.githubusercontent.com/67122062/113318964-99726600-92d6-11eb-944e-f41bbf7f2d2d.png">
 
-const Button1 = styled.button`
-  color: white;
-  background-color: darkgreen;
-`;
+## MOCK-UP
 
-const Button2 = styled.button`
-  color: white;
-  background-color: darkred;
-`;
+## LOOM VIDEO WALKTHROUGH
 
-const ButtonDiv = styled.div`
-  color: white;
-  background-color: ${(props) => props.bgColor || 'black'};
-  margin: 10px;
-  padding: 20px;
-`;
-
-function App() {
-  const handleClick = (e) => {
-    console.warn(e.target.outerText);
-  };
-
-  return (
-    <div className='App'>
-      {/* Styled component without prop  */}
-      <ButtonDiv>
-        <Button1 onClick={handleClick}>I am button 1</Button1>
-      </ButtonDiv>
-
-      <button onClick={handleClick}>I am button 1 no style</button>
-
-      {/* Styled component with prop  */}
-      <ButtonDiv bgColor='purple'>
-        <Button2 onClick={handleClick}>I am button 2</Button2>
-      </ButtonDiv>
-    </div>
-  );
-}
-
-export default App;
-```
+## NETLIFY DEPLOY
