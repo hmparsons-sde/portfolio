@@ -58,7 +58,7 @@ const NavBar = ({ user }) => {
         </NavbarBrand>
           <Nav navbar>
             <NavItem>
-              <Link className='nav-link' to='/bio'>
+              <Link className='nav-link' to='/about'>
                 About
               </Link>
             </NavItem>
