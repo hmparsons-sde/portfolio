@@ -9,7 +9,7 @@ import {
   Button,
 } from 'reactstrap';
 // import styled from 'styled-components';
-import { signInUser, signOutUser } from '../../helpers/auth';
+import { signInAdmin, signOutAdmin } from '../../helpers/auth';
 
 // const StyledSideNav = styled.div`
 //   height: 100%;
@@ -24,11 +24,11 @@ import { signInUser, signOutUser } from '../../helpers/auth';
 //   align-items: center;
 // `;
 
-const NavBar = ({ user }) => {
+const NavBar = ({ admin }) => {
   const authenticated = () => (
     <>
       <NavItem>
-        <Link className='nav-link' to='/admin/bio'>
+        <Link className='nav-link' to='/admin/about'>
           Edit Bio
         </Link>
       </NavItem>
@@ -77,25 +77,29 @@ const NavBar = ({ user }) => {
                 Contact
               </Link>
             </NavItem>
-            {user && authenticated()}
-            {user !== null && (
-              <NavItem>
-                <Button size='sm' color="danger" onClick={signOutUser}>
-                  <i className="fas fa-sign-out-alt"></i>
+            {admin && authenticated()}
+            {
+              admin !== null
+              && <NavItem>
+                {
+                  admin
+                    ? <Button size='sm' color="danger" onClick={signOutAdmin}>
+                 <i className="fas fa-sign-out-alt"></i>
                 </Button>
-                <Button size='sm' color="info" onClick={signInUser}>
+                    : <Button size='sm' color="info" onClick={signInAdmin}>
                   <i className="fas fa-sign-in-alt"></i>
                 </Button>
+              }
               </NavItem>
-            )};
+            };
           </Nav>
-      </Navbar>
-    </div>
+        </Navbar>
+      </div>
   );
 };
 
 NavBar.propTypes = {
-  user: PropTypes.any,
+  admin: PropTypes.any,
 };
 
 export default NavBar;
