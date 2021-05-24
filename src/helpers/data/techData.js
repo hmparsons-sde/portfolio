@@ -20,4 +20,26 @@ const addTechs = (obj) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-export { addTechs, getTechs };
+const deleteTech = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/tech/${firebaseKey}.json`)
+    .then(() => getTechs().then((TechArray) => resolve(TechArray)))
+    .catch((error) => reject(error));
+});
+
+const getSingleTech = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/tech/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
+const updateTech = (techObject, firebaseKey) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/tech/${firebaseKey}.json`, techObject)
+    .then(() => {
+      getTechs().then((techArray) => resolve(techArray))
+        .catch((error) => reject(error));
+    });
+});
+
+export {
+  getTechs, deleteTech, addTechs, getSingleTech, updateTech
+};

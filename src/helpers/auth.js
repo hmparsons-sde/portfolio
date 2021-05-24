@@ -1,12 +1,12 @@
 import firebase from 'firebase';
 
-const signInUser = () => {
+const signInAdmin = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider);
 };
 
-const signOutUser = () => new Promise((resolve, reject) => {
+const signOutAdmin = () => new Promise((resolve, reject) => {
   firebase.auth().signOut().then(resolve).catch(reject);
 });
 
-export { signInUser, signOutUser };
+export { signInAdmin, signOutAdmin };

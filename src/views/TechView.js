@@ -38,7 +38,7 @@ function TechView() {
 TechView.propTypes = {
   tech: PropTypes.array,
   setTech: PropTypes.func,
-  user: PropTypes.any
+  admin: PropTypes.any
 };
 
 export default TechView;
