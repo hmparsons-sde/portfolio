@@ -36,8 +36,8 @@ function TechView() {
 }
 
 TechView.propTypes = {
-  tech: PropTypes.array.isRequired,
-  setTech: PropTypes.func.isRequired,
+  tech: PropTypes.array,
+  setTech: PropTypes.func,
   user: PropTypes.any
 };
 
