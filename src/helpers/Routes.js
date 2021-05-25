@@ -7,9 +7,8 @@ import TechView from '../views/TechView';
 import Contact from '../views/ContactView';
 import NotFound from '../views/NotFound';
 import BioView from '../views/BioView';
-import AdminView from '../views/AdminView';
 
-export default function Routes({ admin, user }) {
+export default function Routes({ admin }) {
   return (
     <div>
       <Switch>
@@ -33,11 +32,6 @@ export default function Routes({ admin, user }) {
         <Route
           path='*'
           component={NotFound}
-        />
-        <Route
-          exact
-          path='/authed'
-          component={() => <AdminView user={user}/>}
         />
       </Switch>
     </div>
