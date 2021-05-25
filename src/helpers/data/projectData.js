@@ -6,13 +6,8 @@ const dbUrl = firebaseConfig.databaseURL;
 
 const getProjects = () => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/projects.json`)
-    .then((response) => {
-      if (response.data) {
-        resolve(Object.values(response.data));
-      } else {
-        resolve([]);
-      }
-    }).catch((error) => reject(error));
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
 });
 
 const deleteProjects = (firebaseKey) => new Promise((resolve, reject) => {
@@ -32,12 +27,6 @@ const addProjects = (projectObject) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-const getSingleProject = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/projects/${firebaseKey}.json`)
-    .then((response) => resolve(response.data))
-    .catch((error) => reject(error));
-});
-
 const updateProject = (projectObject, firebaseKey) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/projects/${firebaseKey}.json`, projectObject)
     .then(() => {
@@ -47,5 +36,5 @@ const updateProject = (projectObject, firebaseKey) => new Promise((resolve, reje
 });
 
 export {
-  getProjects, deleteProjects, addProjects, getSingleProject, updateProject
+  getProjects, deleteProjects, addProjects, updateProject
 };

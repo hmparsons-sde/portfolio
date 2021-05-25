@@ -1,46 +1,36 @@
 import firebase from 'firebase';
-import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Footer from '../Components/Nav/Footer';
 import NavBar from '../Components/Nav/NavBar';
 import Routes from '../helpers/Routes';
 
-function App({
-  setProjects, setTech, setTechForm
-}) {
+function App() {
   const [admin, setAdmin] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed && (authed.uid === process.env.REACT_APP_ADMIN_UID)) {
         setAdmin(true);
+        setLoggedInUser(true);
       } else if (admin || admin === null) {
         setAdmin(false);
+        setLoggedInUser(false);
       }
     });
   }, []);
+
   return (
     <Router>
-      <NavBar admin={admin}/>
+      <NavBar />
       <Routes
         admin={admin}
-        setProjects={setProjects}
-        setTech={setTech}
-        setTechForm={setTechForm}
+        user={loggedInUser}
       />
       <Footer />
     </Router>
   );
 }
-
-App.propTypes = {
-  setProjects: PropTypes.func,
-  showForm: PropTypes.bool,
-  setShowForm: PropTypes.func,
-  handleClick: PropTypes.func,
-  setTech: PropTypes.func,
-  setTechForm: PropTypes.func
-};
 
 export default App;
