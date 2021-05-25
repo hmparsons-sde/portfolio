@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import ProjectCard from '../Components/Cards/ProjectCards';
 import { getProjects } from '../helpers/data/projectData';
+
+const ProjectContainer = styled.div`  
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 5%;
+`;
 
 export default function ProjectsView() {
   const [projects, setProjects] = useState([]);
@@ -10,20 +18,13 @@ export default function ProjectsView() {
   }, []);
 
   return (
-    <main>
-      <section>
-        <div className="head">
-          <header className="title">Projects</header>
-        </div>
-      <div className='projectsContainer mt-2'>
+    <ProjectContainer className='projectsContainer mt-2 p-3'>
         {projects.map((project) => (
           <ProjectCard key={project.firebaseKey}
             setProjects={setProjects}
             {...project}
             />
         ))}
-        </div>
-      </section>
-    </main>
+    </ProjectContainer>
   );
 }

@@ -91,7 +91,7 @@ const NavBar = ({ admin }) => {
                 </Button>
               }
               </NavItem>
-            };
+            }
           </Nav>
         </Navbar>
       </div>

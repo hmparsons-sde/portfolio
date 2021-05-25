@@ -1,9 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
 import {
-  Card, CardBody, CardImg, CardText, CardTitle
+  Button,
+  CardBody, CardImg, CardText, CardTitle
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
+const NssProjects = styled.div`
+  width: 500px;
+  height: 300px;
+  margin: 15px;
+  box-shadow: 50px;
+  display: flex;
+  justify-content: center;
+`;
 export default function ProjectCard({
   firebaseKey,
   title,
@@ -12,23 +22,21 @@ export default function ProjectCard({
   tech,
   github,
   url,
-  available,
 }) {
   return (
-    <Card
+    <NssProjects
       key={firebaseKey}
       id={firebaseKey}
       body>
     <CardBody>
       <CardImg src={screenshot} />
-      <CardTitle tag="h5">{title}</CardTitle>
+      <CardTitle tag="h5" className="mt-3">{title}</CardTitle>
       <CardText>{overview}</CardText>
-      <CardText>{available}</CardText>
       <CardText>{tech}</CardText>
-      <CardText>{github}</CardText>
-      <CardText>{url}</CardText>
+          <Button id='btnModal' href={github} target='_blank'>GitHub</Button>{' '}
+          <Button id='btnModal' href={url} target='_blank'>URL</Button>
     </CardBody>
-    </Card>
+    </NssProjects>
   );
 }
 
@@ -39,6 +47,5 @@ ProjectCard.propTypes = {
   tech: PropTypes.string,
   github: PropTypes.string,
   url: PropTypes.string,
-  available: PropTypes.string,
   firebaseKey: PropTypes.string
 };

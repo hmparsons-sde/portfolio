@@ -20,7 +20,7 @@ PrivateRoute.propTypes = {
   admin: PropTypes.any
 };
 export default function Routes({
-  setProjects, setTech, setTechForm, setShowForm, admin, setAdmin, setBio, setBioForm, setContactForm, setContact
+  setProjects, setTech, setTechForm, setShowForm, admin, setAdmin, setBios, setBioForm, setContactForm, setContact
 }) {
   return (
     <div>
@@ -47,7 +47,7 @@ export default function Routes({
         />
         <PrivateRoute
           path='/admin/about'
-          component={() => <BioView admin={admin} setBio={setBio} setBioForm={setBioForm} setAdmin={setAdmin} />}
+          component={() => <BioView admin={admin} setBios={setBios} setBioForm={setBioForm} setAdmin={setAdmin} />}
         />
         <PrivateRoute
           path='/admin/projects'
@@ -70,7 +70,7 @@ Routes.propTypes = {
   setProjects: PropTypes.func,
   setTech: PropTypes.func,
   setTechForm: PropTypes.func,
-  setBio: PropTypes.func,
+  setBios: PropTypes.func,
   setBioForm: PropTypes.func,
   setShowForm: PropTypes.func,
   setContact: PropTypes.func,
