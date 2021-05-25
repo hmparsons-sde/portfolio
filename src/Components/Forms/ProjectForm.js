@@ -5,45 +5,32 @@ import {
 import PropTypes from 'prop-types';
 import { addProjects, updateProject } from '../../helpers/data/projectData';
 
-const ProjectForm = ({
-  firebaseKey,
-  title,
-  screenshot,
-  overview,
-  tech,
-  github,
-  url,
-  available,
-  setProjects,
-  setShowForm,
-  setEditing
-}) => {
+const ProjectForm = ({ setProjects, ...projectObj }) => {
   const [project, setProject] = useState({
-    firebaseKey: firebaseKey || '',
-    title: title || '',
-    screenshot: screenshot || '',
-    overview: overview || '',
-    tech: tech || '',
-    github: github || '',
-    url: url || '',
-    available: available || false,
+    firebaseKey: projectObj.firebaseKey || '',
+    title: projectObj?.title || '',
+    screenshot: projectObj?.screenshot || '',
+    overview: projectObj?.overview || '',
+    tech: projectObj?.tech || '',
+    github: projectObj?.github || '',
+    url: projectObj?.url || '',
+    available: projectObj?.available || false,
   });
+
+  const handleInputChange = (e) => {
+    setProject((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (project.firebaseKey) {
       updateProject(project).then((projectArray) => setProjects(projectArray));
-      setEditing(false);
     } else {
       addProjects(project).then((projectArray) => setProjects(projectArray));
-      setShowForm(false);
     }
-  };
-  const handleInputChange = (e) => {
-    setProject((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.name === 'available' ? e.target.checked : e.target.value
-    }));
   };
 
   return (
@@ -51,7 +38,7 @@ const ProjectForm = ({
       id="addProjectForm"
       autoComplete='off'
       onSubmit={handleSubmit}
-      className='container'>
+      >
       <FormGroup>
         <Label for="title">Title</Label>
         <Input
@@ -66,7 +53,7 @@ const ProjectForm = ({
       <FormGroup>
         <Label for="screenshot">Screenshot</Label>
         <Input
-          type="url"
+          type="text"
           name="screenshot"
           id="screenshot"
           value={project.screenshot}
@@ -99,7 +86,7 @@ const ProjectForm = ({
       <FormGroup>
         <Label for="githubRepo">GitHub Repo</Label>
         <Input
-          type="url"
+          type="text"
           name="github"
           id="github"
           value={project.github}
@@ -109,42 +96,20 @@ const ProjectForm = ({
       <FormGroup>
         <Label for="netlify">Netlify Link</Label>
         <Input
-          type="url"
+          type="text"
           name="url"
           id="netlify"
           value={project.url}
           onChange={handleInputChange}
         />
       </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input
-              type="radio"
-              name="available"
-              id="available"
-              checked={project.available}
-              onChange={handleInputChange}
-            />{' '}
-            Available
-          </Label>
-        </FormGroup>
-      <Button color='info' type='submit'>Submit</Button>
+      <Button id='submitBtn' type='submit'>Submit</Button>
     </Form>
   );
 };
 
 ProjectForm.propTypes = {
-  setProjects: PropTypes.func,
-  title: PropTypes.string,
-  screenshot: PropTypes.string,
-  overview: PropTypes.overview,
-  tech: PropTypes.tech,
-  github: PropTypes.number,
-  url: PropTypes.string,
-  available: PropTypes.any,
-  setShowForm: PropTypes.func,
-  setEditing: PropTypes.func,
-  firebaseKey: PropTypes.string
+  setProjects: PropTypes.func
 };
 
 export default ProjectForm;

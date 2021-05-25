@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TechCard from '../Components/Cards/TechCards';
-import { getTechs } from '../helpers/data/techData';
+import getTechs from '../helpers/data/techData';
 
 const TechContainer = styled.div`
   display: flex;

@@ -1,98 +1,60 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import {
-  Navbar,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  Button,
+  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button
 } from 'reactstrap';
-// import styled from 'styled-components';
-import { signInAdmin, signOutAdmin } from '../../helpers/auth';
-
-// const StyledSideNav = styled.div`
-//   height: 100%;
-//   width: 25%;
-//   position: fixed;
-//   z-index: 1;
-//   top: 0;
-//   left: 0;
-//   padding-top: 20px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
+import PropTypes from 'prop-types';
+import { signInUser, signOutUser } from '../../helpers/auth';
 
 const NavBar = ({ admin }) => {
-  const authenticated = () => (
-    <>
-      <NavItem>
-        <Link className='nav-link' to='/admin/about'>
-          Edit Bio
-        </Link>
-      </NavItem>
-      <NavItem>
-        <Link className='nav-link' to='/admin/projects'>
-          Edit Projects
-        </Link>
-      </NavItem>
-      <NavItem>
-        <Link className='nav-link' to='/admin/tech'>
-          Edit Tech
-        </Link>
-      </NavItem>
-      <NavItem>
-        <Link className='nav-link' to='/admin/contact'>
-          Edit Contact Info
-        </Link>
-      </NavItem>
-    </>
-  );
+  const [collapsed, setCollapsed] = useState(true);
+
+  const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
     <div>
-      <Navbar>
-        <NavbarBrand href="/">
+      <Navbar color="faded" light>
+        <NavbarBrand href="/" className="mr-auto">
           <i>🍔</i>
         </NavbarBrand>
+        <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+        <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <Link className='nav-link' to='/about'>
+              <NavLink href='/about'>
                 About
-              </Link>
+              </NavLink>
             </NavItem>
             <NavItem>
-              <Link className='nav-link' to='/projects'>
+              <NavLink href='/projects'>
                 Projects
-              </Link>
+              </NavLink>
             </NavItem>
             <NavItem>
-              <Link className='nav-link' to='/tech'>
+              <NavLink href='/tech'>
                 Tech Stack
-              </Link>
+              </NavLink>
             </NavItem>
             <NavItem>
-              <Link className='nav-link' to='/contact'>
+              <NavLink href='/contact'>
                 Contact
-              </Link>
+              </NavLink>
             </NavItem>
-            {admin && authenticated()}
             {
               admin !== null
               && <NavItem>
                 {
                   admin
-                    ? <Button size='sm' color="danger" onClick={signOutAdmin}>
+                    ? <Button size='sm' color="danger" onClick={signOutUser}>
                  <i className="fas fa-sign-out-alt"></i>
                 </Button>
-                    : <Button size='sm' color="info" onClick={signInAdmin}>
+                    : <Button size='sm' color="info" onClick={signInUser}>
                   <i className="fas fa-sign-in-alt"></i>
                 </Button>
               }
               </NavItem>
-            };
+            }
           </Nav>
+          </Collapse>
         </Navbar>
       </div>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
+// import { Link } from 'react-router-dom';
+// import { Button } from 'reactstrap';
 
 export default function Home() {
   return (
-    <div>
-      <h1>Oops! Nothing Here!</h1>
-    </div>
+    <div></div>
   );
 }

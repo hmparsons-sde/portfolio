@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {
   Card,
-  CardImg,
-  CardText
+  CardImg
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
@@ -12,9 +11,10 @@ const TechCardBody = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  width: 100%;
-  height: 25%;
-  margin-top: 2%;
+  width: 200px;
+  height: auto;
+  margin: 15px;
+  border: none;
 `;
 
 const TechCard = ({
@@ -23,9 +23,8 @@ const TechCard = ({
   firebaseKey
 }) => (
   <TechCardBody>
-  <Card className='card' key={firebaseKey}>
-      <CardImg src={icon}></CardImg>
-      <CardText>{tech}</CardText>
+  <Card className='card border-0' key={firebaseKey}>
+      <CardImg src={icon} alt={tech}></CardImg>
   </Card>
   </TechCardBody>
 );
