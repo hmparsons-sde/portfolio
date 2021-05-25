@@ -24,7 +24,7 @@ const TechCard = ({
 }) => (
   <TechCardBody>
   <Card className='card border-0' key={firebaseKey}>
-      <CardImg src={icon} alt={tech} transparent></CardImg>
+      <CardImg src={icon} alt={tech}></CardImg>
   </Card>
   </TechCardBody>
 );

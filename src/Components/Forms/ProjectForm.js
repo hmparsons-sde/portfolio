@@ -17,6 +17,13 @@ const ProjectForm = ({ setProjects, ...projectObj }) => {
     available: projectObj?.available || false,
   });
 
+  const handleInputChange = (e) => {
+    setProject((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (project.firebaseKey) {
@@ -24,12 +31,6 @@ const ProjectForm = ({ setProjects, ...projectObj }) => {
     } else {
       addProjects(project).then((projectArray) => setProjects(projectArray));
     }
-  };
-  const handleInputChange = (e) => {
-    setProject((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value
-    }));
   };
 
   return (

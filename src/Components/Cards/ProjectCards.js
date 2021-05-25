@@ -32,21 +32,22 @@ export default function ProjectCard({ admin, setProjects, ...project }) {
     }
   };
   return (
-    <NssProjects
-      key={project.firebaseKey}
-      id={project.firebaseKey}
-      body>
+    <div>
+      <NssProjects
+        key={project.firebaseKey}
+        id={project.firebaseKey}
+        body>
       <CardBody>
         <CardImg src={project.screenshot} />
         <CardTitle tag="h5" className="mt-3">{project.title}</CardTitle>
         <CardText>{project.overview}</CardText>
         <CardText>{project.tech}</CardText>
-            <Button id='btnModal' href={project.github} target='_blank'>GitHub</Button>{' '}
-            <Button id='btnModal' href={project.url} target='_blank'>URL</Button>
-          {
-            admin && <div>
-            <Button onClick={() => handleClick('delete')}>Delete Project</Button>
-            <Button onClick={() => handleClick('edit')}>{editing ? 'Close Form' : 'Edit Project'}</Button>
+            <Button href={project.github} target='_blank'>GitHub</Button>{' '}
+            <Button href={project.url} target='_blank'>URL</Button>
+            {
+              admin && <div>
+              <Button onClick={() => handleClick('delete')}>Delete Project</Button>
+              <Button onClick={() => handleClick('edit')}>{editing ? 'Close Form' : 'Edit Project'}</Button>
             {
               editing && <ProjectForm
               setProjects={setProjects}
@@ -57,6 +58,7 @@ export default function ProjectCard({ admin, setProjects, ...project }) {
           }
         </CardBody>
       </NssProjects>
+    </div>
   );
 }
 
