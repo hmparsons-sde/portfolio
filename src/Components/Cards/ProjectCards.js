@@ -9,12 +9,13 @@ import ProjectForm from '../Forms/ProjectForm';
 import { deleteProjects } from '../../helpers/data/projectData';
 
 const NssProjects = styled.div`
-  width: 500px;
-  height: 300px;
+  width: 400px;
+  height: 200px;
   margin: 15px;
   box-shadow: 50px;
   display: flex;
   justify-content: center;
+  padding-bottom: 200px;
 `;
 export default function ProjectCard({ admin, setProjects, ...project }) {
   const [editing, setEditing] = useState(false);
@@ -42,6 +43,7 @@ export default function ProjectCard({ admin, setProjects, ...project }) {
         <CardTitle tag="h5" className="mt-3">{project.title}</CardTitle>
         <CardText>{project.overview}</CardText>
         <CardText>{project.tech}</CardText>
+          <div className="row justify-content-center">
             <Button href={project.github} target='_blank'>GitHub</Button>{' '}
             <Button href={project.url} target='_blank'>URL</Button>
             {
@@ -56,6 +58,7 @@ export default function ProjectCard({ admin, setProjects, ...project }) {
             }
             </div>
           }
+          </div>
         </CardBody>
       </NssProjects>
     </div>

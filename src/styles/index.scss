@@ -1,6 +1,10 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import 'variables';
 
-body {
+#root {
   background-color: white;
+  height: 100%;
+  padding-bottom: 200px;
+  font-family: 'Lato', sans-serif;
 }
