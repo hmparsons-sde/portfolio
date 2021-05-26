@@ -26,7 +26,8 @@ export default function ProjectsView({ admin }) {
 
   return (
     <div>
-      <section className="header mt-2">
+      {admin
+      && <section className="header mt-2">
         { !showButton
           ? <Button className="m-2 btn-lg" color='danger' onClick={handleClick}>Add Project</Button>
           : <div>
@@ -34,7 +35,8 @@ export default function ProjectsView({ admin }) {
             <ProjectForm className="justify-content-center mt-3" setProjects={setProjects} admin={admin}/>
           </div>
           }
-        </section>;
+        </section>
+      }
          <ProjectContainer className='projectsContainer mt-2 p-3'>
           {projects.map((project) => (
             <ProjectCard
