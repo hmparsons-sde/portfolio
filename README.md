@@ -1,4 +1,4 @@
-### OVERVIEW [![Netlify Status](https://api.netlify.com/api/v1/badges/ab054253-a131-46df-95bf-b9ede50512df/deploy-status)](https://app.netlify.com/sites/portfolio-hp/deploys)
+### OVERVIEW [![Netlify Status](https://api.netlify.com/api/v1/badges/61461307-6c13-4fff-bd7b-53e93b874f9d/deploy-status)](https://app.netlify.com/sites/portfolio-hp/deploys)
 
 This is my personal portfolio site that showcases my progress as a software developer. In this iteration, I am highlighting my work during Nashville Software School's part-time web dev bootcamp. From the side navbar, site visitors may navigate to my bio, the projects that best demonstrate my technical competencies, and to my tech stack. Beneath these site-specific navigation buttons, the user can open my Github and LinkedIn pages (in new windows) or email me directly through their default mail app. As a one-page, smooth-scrolling app, each page takes up 100% of the screen and automatically responds to different screen sizes.
 
