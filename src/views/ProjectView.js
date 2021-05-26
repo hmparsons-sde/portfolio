@@ -25,7 +25,7 @@ export default function ProjectsView({ admin }) {
   }, []);
 
   return (
-    <div>
+    <div className="mb-5">
       {admin
       && <section className="header mt-2">
         { !showButton
