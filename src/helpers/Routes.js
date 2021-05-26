@@ -8,7 +8,17 @@ import Contact from '../views/ContactView';
 import NotFound from '../views/NotFound';
 import BioView from '../views/BioView';
 
-export default function Routes({ admin }) {
+export default function Routes({
+  admin,
+  firebaseKey,
+  github,
+  screenshot,
+  tech,
+  title,
+  url,
+  projects,
+  setProjects,
+}) {
   return (
     <div>
       <Switch>
@@ -20,7 +30,17 @@ export default function Routes({ admin }) {
           component={BioView} />
         <Route
           path='/projects'
-          component={() => <ProjectsView admin={admin}/>}
+          component={() => <ProjectsView
+            firebaseKey={firebaseKey}
+            githubUrl ={github}
+            screenshot={screenshot}
+            technologiesUsed={tech}
+            title={title}
+            url={url}
+            setProjects={setProjects}
+            projects={projects}
+            admin={admin}
+          />}
           />
         <Route
           path='/tech'
@@ -39,6 +59,15 @@ export default function Routes({ admin }) {
 }
 
 Routes.propTypes = {
-  user: PropTypes.any,
-  admin: PropTypes.any
+  admin: PropTypes.any,
+  setProjects: PropTypes.func,
+  title: PropTypes.string,
+  screenshot: PropTypes.string,
+  overview: PropTypes.string,
+  tech: PropTypes.string,
+  github: PropTypes.number,
+  url: PropTypes.string,
+  available: PropTypes.any,
+  projects: PropTypes.array,
+  firebaseKey: PropTypes.string
 };

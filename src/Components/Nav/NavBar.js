@@ -19,6 +19,11 @@ const NavBar = ({ admin }) => {
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
+          <NavItem>
+              <NavLink href='/'>
+                Home
+              </NavLink>
+            </NavItem>
             <NavItem>
               <NavLink href='/about'>
                 About
