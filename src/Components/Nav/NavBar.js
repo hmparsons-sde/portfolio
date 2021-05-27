@@ -17,7 +17,7 @@ const NavBar = ({ admin }) => {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
           <NavItem>
-              <NavLink href='/'>
+              <NavLink className="mt-2" href='/'>
                 Home
               </NavLink>
             </NavItem>
@@ -49,8 +49,7 @@ const NavBar = ({ admin }) => {
                     ? <Button size='sm' color="danger" onClick={signOutUser}>
                  <i className="fas fa-sign-out-alt"></i>
                 </Button>
-                    : <Button size='sm' color="info" onClick={signInUser}>
-                  <i className="fas fa-sign-in-alt"></i>
+                    : <Button size='sm' onClick={signInUser}>
                 </Button>
               }
               </NavItem>

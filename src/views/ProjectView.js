@@ -13,6 +13,12 @@ const ProjectContainer = styled.div`
   margin-top: 5%;
 `;
 
+const CreateButton = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+`;
+
 export default function ProjectsView({ admin }) {
   const [projects, setProjects] = useState([]);
   const [showButton, setShowButton] = useState(false);
@@ -27,17 +33,17 @@ export default function ProjectsView({ admin }) {
   return (
     <div className="mb-5">
       {admin
-      && <section className="header mt-2">
+      && <CreateButton className="header mt-2">
         { !showButton
-          ? <Button className="m-2 btn-lg" color='danger' onClick={handleClick}>Add Project</Button>
+          ? <Button className="m-2 btn-lg justify-content-center" color='danger' onClick={handleClick}>Add Project</Button>
           : <div>
           <Button className="m-2 btn-lg" color='secondary' onClick={handleClick}>Close</Button>
             <ProjectForm className="justify-content-center mt-3" setProjects={setProjects} admin={admin}/>
           </div>
           }
-        </section>
+        </CreateButton>
       }
-         <ProjectContainer className='projectsContainer mt-2 p-3'>
+        <ProjectContainer className='projectsContainer mt-2 p-3'>
           {projects.map((project) => (
             <ProjectCard
               key={project.firebaseKey}
