@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button
+  Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink, Button
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { signInUser, signOutUser } from '../../helpers/auth';
@@ -13,9 +13,6 @@ const NavBar = ({ admin }) => {
   return (
     <div>
       <Navbar color="faded" light>
-        <NavbarBrand href="/" className="mr-auto">
-          <i>🍔</i>
-        </NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
