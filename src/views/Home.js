@@ -7,7 +7,7 @@ const LandingImage = styled.div`
   height:50%;
   width:66%;
 `;
-
+// I will update this view. Image is a placeholder for intended styling.
 export default function Home() {
   return (
     <LandingImage>
