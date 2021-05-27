@@ -4,9 +4,14 @@ This is my personal portfolio site that showcases my progress as a software deve
 
 My goal is to both celebrate my journey into software development and to introduce visitors to my story, motivations, and aesthetic.
 
+### MOCK-UP
+
+https://bit.ly/3yEzgut
+
 ### COLOR PALETTE
 
 <img width="862" alt="portfolio-palette" src="https://user-images.githubusercontent.com/67122062/113318964-99726600-92d6-11eb-944e-f41bbf7f2d2d.png">
 
 ### NETLIFY DEPLOY
+
 https://portfolio-hp.netlify.app/
