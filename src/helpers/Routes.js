@@ -34,7 +34,7 @@ export default function Routes({
             firebaseKey={firebaseKey}
             githubUrl ={github}
             screenshot={screenshot}
-            technologiesUsed={tech}
+            tech={tech}
             title={title}
             url={url}
             setProjects={setProjects}

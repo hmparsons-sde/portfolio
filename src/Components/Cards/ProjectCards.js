@@ -22,6 +22,7 @@ export default function ProjectCard({ admin, setProjects, ...project }) {
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
+        console.warn('this is deleting');
         deleteProjects(project.firebaseKey)
           .then((projectsArray) => setProjects(projectsArray));
         break;
@@ -37,7 +38,8 @@ export default function ProjectCard({ admin, setProjects, ...project }) {
       <NssProjects
         key={project.firebaseKey}
         id={project.firebaseKey}
-        body>
+        body
+      >
       <CardBody>
         <CardImg src={project.screenshot} />
         <CardTitle tag="h5" className="mt-3">{project.title}</CardTitle>
@@ -46,19 +48,18 @@ export default function ProjectCard({ admin, setProjects, ...project }) {
           <div className="row justify-content-center">
             <Button href={project.github} target='_blank'>GitHub</Button>{' '}
             <Button href={project.url} target='_blank'>URL</Button>
+          </div>
             {
-              admin && <div>
-              <Button onClick={() => handleClick('delete')}>Delete Project</Button>
-              <Button onClick={() => handleClick('edit')}>{editing ? 'Close Form' : 'Edit Project'}</Button>
+              admin && <div className="row justify-content-center">
+              <Button onClick={() => { handleClick('delete'); }}>Delete Project</Button>
+              <Button onClick={() => { handleClick('edit'); }}>{editing ? 'Close Form' : 'Edit Project'}</Button></div>
+            }
             {
               editing && <ProjectForm
               setProjects={setProjects}
               {...project}
               />
             }
-            </div>
-          }
-          </div>
         </CardBody>
       </NssProjects>
     </div>
