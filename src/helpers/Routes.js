@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 import ProjectsView from '../views/ProjectView';
 import Home from '../views/Home';
 import TechView from '../views/TechView';
-import Contact from '../views/ContactView';
+// import Contact from '../views/ContactView';
 import NotFound from '../views/NotFound';
-import BioView from '../views/BioView';
 
 export default function Routes({
   admin,
@@ -26,8 +25,6 @@ export default function Routes({
           exact
           path='/'
           component={Home} />
-        <Route exact path='/about'
-          component={BioView} />
         <Route
           path='/projects'
           component={() => <ProjectsView
@@ -45,10 +42,6 @@ export default function Routes({
         <Route
           path='/tech'
           component={TechView}/>
-        <Route
-          path='/contact'
-          component={Contact}
-        />
         <Route
           path='*'
           component={NotFound}
