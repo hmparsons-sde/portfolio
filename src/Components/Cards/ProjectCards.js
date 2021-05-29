@@ -15,8 +15,8 @@ const NssProjects = styled.div`
   margin: 15px;
   box-shadow: 50px;
   display: flex;
-  justify-content: center;
-  padding-bottom: 200px;
+  justify-content: start;
+  // padding-bottom: 200px;
 `;
 export default function ProjectCard({ admin, setProjects, ...project }) {
   const [editing, setEditing] = useState(false);
