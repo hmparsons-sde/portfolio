@@ -8,6 +8,17 @@ My goal is to both celebrate my journey into software development and to introdu
 
 ![bio-palette](https://user-images.githubusercontent.com/67122062/120054076-69ec8b00-bff3-11eb-876c-47c64d03865f.png)
 
+### HOW TO TEST
+
+- Pull "https://github.com/hmparsons-sde/portfolio.git" to local
+- npm start
+
+### SCREENSHOT
+
+<img width="1124" alt="landingscreenshot" src="https://user-images.githubusercontent.com/67122062/120073284-49f1b180-c05d-11eb-873a-5de19ef4b63c.png">
+
+<img width="1116" alt="techpage1" src="https://user-images.githubusercontent.com/67122062/120073305-570ea080-c05d-11eb-9a00-bcd15035fdbd.png">
+
 ### LOOM VIDEO
 
 https://www.loom.com/share/b9e4423a719e4a2ebe7c9bf5ee88010a
