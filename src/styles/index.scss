@@ -30,4 +30,6 @@ a:hover {
 #card {
   border-radius: 35px;
   cursor: pointer;
+  border-style: solid 10px;
+  border-color: $secondaccent;
 }
