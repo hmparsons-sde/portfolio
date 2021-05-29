@@ -10,13 +10,13 @@ const LandingImage = styled.div`
   float: right;
   position: absolute;
   right: 50px;
-  bottom: 50px;
+  bottom: 30px;
   display: block;
 `;
 
 const Greeting = styled.div`
-  padding-left: 400px;
-  padding-top: 100px;
+  padding-left: 300px;
+  padding-top: 90px;
   clear: right;
 `;
 

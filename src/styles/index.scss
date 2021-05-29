@@ -1,5 +1,6 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
 @import 'variables';
 
 * {
@@ -14,6 +15,19 @@
   color: $mainfont;
 }
 
+h1 {
+  font-family: 'Bitter', serif;
+}
+
 a {
   color: $secondfont;
+}
+
+a:hover {
+  color: $mainaccent;
+}
+
+#card {
+  border-radius: 35px;
+  cursor: pointer;
 }

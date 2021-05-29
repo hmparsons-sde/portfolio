@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import {
   Button,
-  CardBody, CardImg, CardText, CardTitle
+  CardBody, CardImg
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import ProjectForm from '../Forms/ProjectForm';
 import { deleteProjects } from '../../helpers/data/projectData';
+import ProjectModal from './ProjectModal';
 
 const NssProjects = styled.div`
-  width: 400px;
-  height: 200px;
+  width: 500px;
+  height: auto;
   margin: 15px;
   box-shadow: 50px;
   display: flex;
@@ -19,6 +20,10 @@ const NssProjects = styled.div`
 `;
 export default function ProjectCard({ admin, setProjects, ...project }) {
   const [editing, setEditing] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const openModal = () => {
+    setShowModal((prevState) => !prevState);
+  };
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
@@ -41,14 +46,7 @@ export default function ProjectCard({ admin, setProjects, ...project }) {
         body
       >
       <CardBody>
-        <CardImg src={project.screenshot} />
-        <CardTitle tag="h5" className="mt-3">{project.title}</CardTitle>
-        <CardText>{project.overview}</CardText>
-        <CardText>{project.tech}</CardText>
-          <div className="row justify-content-center">
-            <Button href={project.github} target='_blank'>GitHub</Button>{' '}
-            <Button href={project.url} target='_blank'>URL</Button>
-          </div>
+        <CardImg src={project.screenshot} onClick={openModal}/>
             {
               admin && <div className="row justify-content-center">
               <Button onClick={() => { handleClick('delete'); }}>Delete Project</Button>
@@ -62,6 +60,7 @@ export default function ProjectCard({ admin, setProjects, ...project }) {
             }
         </CardBody>
       </NssProjects>
+      <ProjectModal showModal={showModal} setShowModal={setShowModal} {...project}/>
     </div>
   );
 }
