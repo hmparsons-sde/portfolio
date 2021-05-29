@@ -8,7 +8,7 @@ import ProjectForm from '../Components/Forms/ProjectForm';
 
 const ProjectContainer = styled.div`  
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: wrap;
   justify-content: center;
   margin-top: 5%;
   margin-bottom: 0;

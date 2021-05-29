@@ -14,9 +14,10 @@ const NssProjects = styled.div`
   height: auto;
   margin: 15px;
   box-shadow: 50px;
+  border-style: solid 10px;
   display: flex;
   justify-content: center;
-  padding-bottom: 200px;
+  padding: 0;
 `;
 export default function ProjectCard({ admin, setProjects, ...project }) {
   const [editing, setEditing] = useState(false);
