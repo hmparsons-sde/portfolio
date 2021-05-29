@@ -8,9 +8,9 @@ import linkedin from '../assets/linkedin.png';
 
 const LandingImage = styled.div`
   float: right;
-  position: absolute;
+  position: flex;
   right: 50px;
-  bottom: 30px;
+  bottom: 0px;
   display: block;
 `;
 
