@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TechCard from '../Components/Cards/TechCards';
 import getTechs from '../helpers/data/techData';
+import footer from '../assets/footer.png';
 
 const TechContainer = styled.div`
   display: flex;
@@ -11,6 +12,12 @@ const TechContainer = styled.div`
   margin-top: 5%;
 `;
 
+const BottomAccent = styled.div`
+  float: left;
+  right: 50px;
+  bottom: 30px;
+  display: block;
+`;
 function TechView() {
   const [tech, setTech] = useState([]);
 
@@ -20,7 +27,7 @@ function TechView() {
 
   return (
     <>
-      <TechContainer>
+      <TechContainer className="mb-3">
         {tech.map((techInfo) => (
           <TechCard
           key={techInfo.firebaseKey}
@@ -31,6 +38,9 @@ function TechView() {
           />
         ))}
       </TechContainer>
+      <BottomAccent>
+        <img src={footer}></img>
+      </BottomAccent>
     </>
   );
 }

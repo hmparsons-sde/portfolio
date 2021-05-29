@@ -1,14 +1,33 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
 @import 'variables';
 
 * {
   box-sizing: border-box;
+  background-color: $background;
 }
 
 #root {
-  background-color: white;
   height: 100%;
   padding-bottom: 200px;
   font-family: 'Lato', sans-serif;
+  color: $mainfont;
+}
+
+h1 {
+  font-family: 'Bitter', serif;
+}
+
+a {
+  color: $secondfont;
+}
+
+a:hover {
+  color: $mainaccent;
+}
+
+#card {
+  border-radius: 35px;
+  cursor: pointer;
 }

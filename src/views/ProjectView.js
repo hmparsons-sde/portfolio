@@ -11,6 +11,7 @@ const ProjectContainer = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   margin-top: 5%;
+  margin-bottom: 0;
 `;
 
 const CreateButton = styled.div`
@@ -18,7 +19,6 @@ const CreateButton = styled.div`
   justify-content: center;
   margin-top: 5%;
 `;
-
 export default function ProjectsView({ admin }) {
   const [projects, setProjects] = useState([]);
   const [showButton, setShowButton] = useState(false);
@@ -31,7 +31,9 @@ export default function ProjectsView({ admin }) {
   }, []);
 
   return (
-    <div className="mb-5">
+    <div>
+      <h1 className="justify-content-center text-center mt-3 mb-3">My work</h1>
+      <hr className="mt-3 w-50"/>
       {admin
       && <CreateButton className="header mt-2">
         { !showButton
@@ -43,7 +45,7 @@ export default function ProjectsView({ admin }) {
           }
         </CreateButton>
       }
-        <ProjectContainer className='projectsContainer mt-2 p-3'>
+        <ProjectContainer className='projectsContainer mt-2 p-1'>
           {projects.map((project) => (
             <ProjectCard
               key={project.firebaseKey}
